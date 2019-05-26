@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace DraftSnakeLibrary.Entities
+namespace DraftSnakeLibrary.Entities.Players
 {
     public class Player
     {

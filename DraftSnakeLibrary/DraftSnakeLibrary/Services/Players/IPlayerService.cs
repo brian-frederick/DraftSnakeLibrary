@@ -1,4 +1,4 @@
-﻿using DraftSnakeLibrary.Entities.Players;
+﻿using DraftSnakeLibrary.Models.Players;
 
 namespace DraftSnakeLibrary.Services.Players
 {

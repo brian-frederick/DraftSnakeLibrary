@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace DraftSnakeLibrary.Entities.Messages
+namespace DraftSnakeLibrary.Models.Messages
 {
     public abstract class Message
     {

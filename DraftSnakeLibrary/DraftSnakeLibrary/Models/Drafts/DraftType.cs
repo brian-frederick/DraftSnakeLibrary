@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace DraftSnakeLibrary.Entities.Drafts
+namespace DraftSnakeLibrary.Models.Drafts
 {
     public enum DraftType
     {

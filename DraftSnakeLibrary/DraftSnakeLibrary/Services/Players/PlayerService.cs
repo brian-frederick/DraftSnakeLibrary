@@ -1,4 +1,4 @@
-﻿using DraftSnakeLibrary.Entities.Players;
+﻿using DraftSnakeLibrary.Models.Players;
 using System;
 using System.Collections.Generic;
 using System.Text;

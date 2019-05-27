@@ -1,9 +1,9 @@
-﻿using DraftSnakeLibrary.Entities.Picks;
+﻿using DraftSnakeLibrary.Models.Picks;
 using System;
 using System.Collections.Generic;
 using System.Text;
 
-namespace DraftSnakeLibrary.Entities.Messages
+namespace DraftSnakeLibrary.Models.Messages
 {
     public class PickSubmittedMessage : Message
     {

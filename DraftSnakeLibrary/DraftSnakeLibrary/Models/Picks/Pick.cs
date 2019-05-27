@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace DraftSnakeLibrary.Entities.Picks
+namespace DraftSnakeLibrary.Models.Picks
 {
     public class Pick
     {

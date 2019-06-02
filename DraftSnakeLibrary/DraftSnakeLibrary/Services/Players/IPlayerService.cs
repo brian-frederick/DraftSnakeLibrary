@@ -1,9 +1,11 @@
 ﻿using DraftSnakeLibrary.Models.Players;
+using System.Collections.Generic;
+using System.Threading.Tasks;
 
 namespace DraftSnakeLibrary.Services.Players
 {
     public interface IPlayerService
     {
-        Player RetrievePlayers(string draftId);
+        Task<List<Player>> RetrievePlayers(string draftId);
     }
 }

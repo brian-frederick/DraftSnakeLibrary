@@ -1,4 +1,5 @@
 ﻿using Amazon.DynamoDBv2.Model;
+using DraftSnakeLibrary.Services;
 using System;
 using System.Collections.Generic;
 using System.Text;
@@ -6,7 +7,7 @@ using System.Text;
 namespace DraftSnakeLibrary.Models.Players
 {
 
-    public class PlayerMapper 
+    public class PlayerMapper : IModelMapper<Player>
     {
         public Player MapDynamoItemToModel(Dictionary<string, AttributeValue> item)
         {

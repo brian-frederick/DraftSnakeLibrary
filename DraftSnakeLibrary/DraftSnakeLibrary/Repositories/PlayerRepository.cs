@@ -6,15 +6,16 @@ using Amazon.DynamoDBv2.Model;
 using Amazon.DynamoDBv2;
 using System.Threading.Tasks;
 using DraftSnakeLibrary.Services.Players;
+using DraftSnakeLibrary.Services;
 
 namespace DraftSnakeLibrary.Repositories
 {
     public class PlayerRepository : IPlayerRepository
     {
         IAmazonDynamoDB _dynamoClient;
-        IPlayerMapper _playerMapper;
+        IModelMapper<Player> _playerMapper;
 
-        public PlayerRepository(IAmazonDynamoDB dynamoClient, IPlayerMapper playerMapper)
+        public PlayerRepository(IAmazonDynamoDB dynamoClient, IModelMapper<Player> playerMapper)
         {
             _dynamoClient = dynamoClient;
             _playerMapper = playerMapper;

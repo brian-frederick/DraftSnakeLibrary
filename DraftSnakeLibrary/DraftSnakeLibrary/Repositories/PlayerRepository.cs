@@ -10,7 +10,7 @@ using DraftSnakeLibrary.Services;
 
 namespace DraftSnakeLibrary.Repositories
 {
-    public class PlayerRepository : IPlayerRepository
+    public class PlayerRepository : IModelDynamoDbRepository<Player>
     {
         IAmazonDynamoDB _dynamoClient;
         IModelMapper<Player> _playerMapper;
@@ -22,7 +22,7 @@ namespace DraftSnakeLibrary.Repositories
         }
 
 
-        public async Task<List<Player>> RetrievePlayers(string draftId)
+        public async Task<List<Player>> RetrieveByDraftId(string draftId)
         {
             var request = new QueryRequest
             {
@@ -45,6 +45,25 @@ namespace DraftSnakeLibrary.Repositories
             });
 
             return players;
+        }
+
+        public async Task<Player> Put(Player newPlayer)
+        {
+            var ddbRequest = new PutItemRequest
+            {
+                TableName = "Players",
+                Item = new Dictionary<string, AttributeValue>
+                    {
+                        { "DraftId", new AttributeValue{ S = newPlayer.DraftId }},
+                        { "Name", new AttributeValue{S = newPlayer.Name} },
+                        { "ConnectionId", new AttributeValue{ S = newPlayer.ConnectionId }},
+                        { "IsConnected", new AttributeValue{ BOOL = newPlayer.IsConnected } }
+                    }
+            };
+
+            await _dynamoClient.PutItemAsync(ddbRequest);
+
+            return newPlayer;
         }
     }
 }

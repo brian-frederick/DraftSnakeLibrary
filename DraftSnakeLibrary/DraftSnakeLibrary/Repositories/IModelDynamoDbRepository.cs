@@ -6,8 +6,10 @@ using System.Threading.Tasks;
 
 namespace DraftSnakeLibrary.Repositories
 {
-    public interface IPlayerRepository
+    public interface IModelDynamoDbRepository<T>
     {
-        Task<List<Player>> RetrievePlayers(string draftId);
+        Task<List<T>> RetrieveByDraftId(string draftId);
+
+        Task<T> Put(T item);
     }
 }

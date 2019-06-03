@@ -9,16 +9,21 @@ namespace DraftSnakeLibrary.Services.Players
 {
     public class PlayerService : IPlayerService
     {
-        IPlayerRepository _playerRepository;
+        IModelDynamoDbRepository<Player> _playerRepository;
 
-        public PlayerService(IPlayerRepository playerRepository)
+        public PlayerService(IModelDynamoDbRepository<Player> playerRepository)
         {
             _playerRepository = playerRepository;
         }
 
         public async Task<List<Player>> RetrievePlayers(string draftId)
         {
-            return await _playerRepository.RetrievePlayers(draftId);
+            return await _playerRepository.RetrieveByDraftId(draftId);
+        }
+
+        public Task<Player> Put(Player playerToPut)
+        {
+            return _playerRepository.Put(playerToPut);
         }
     }
 }

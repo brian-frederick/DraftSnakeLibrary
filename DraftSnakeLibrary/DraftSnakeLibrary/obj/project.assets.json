@@ -2,7 +2,7 @@
   "version": 3,
   "targets": {
     ".NETCoreApp,Version=v2.1": {
-      "AWSSDK.Core/3.3.101.15": {
+      "AWSSDK.Core/3.3.102": {
         "type": "package",
         "compile": {
           "lib/netstandard2.0/AWSSDK.Core.dll": {}
@@ -21,6 +21,18 @@
         },
         "runtime": {
           "lib/netstandard2.0/AWSSDK.DynamoDBv2.dll": {}
+        }
+      },
+      "AWSSDK.SQS/3.3.100.28": {
+        "type": "package",
+        "dependencies": {
+          "AWSSDK.Core": "[3.3.102, 3.4.0)"
+        },
+        "compile": {
+          "lib/netstandard2.0/AWSSDK.SQS.dll": {}
+        },
+        "runtime": {
+          "lib/netstandard2.0/AWSSDK.SQS.dll": {}
         }
       },
       "Microsoft.NETCore.App/2.1.0": {
@@ -228,17 +240,26 @@
         "build": {
           "build/netstandard2.0/NETStandard.Library.targets": {}
         }
+      },
+      "Newtonsoft.Json/12.0.2": {
+        "type": "package",
+        "compile": {
+          "lib/netstandard2.0/Newtonsoft.Json.dll": {}
+        },
+        "runtime": {
+          "lib/netstandard2.0/Newtonsoft.Json.dll": {}
+        }
       }
     }
   },
   "libraries": {
-    "AWSSDK.Core/3.3.101.15": {
-      "sha512": "JJt7VdyhB3otxtGm/c4JoY3dS/1hJbkYgqlI8h1rg9mASW9C3NF8/Z/NBRNJAUl4fVVRIfbDB2B3pj/1RE3KXw==",
+    "AWSSDK.Core/3.3.102": {
+      "sha512": "Mmlu/wqo3C7dGEqnuHFugTezu3NZrxIQdhqS0kqH+hqB0hiFwfmvPcxrhyTT5ltdqWv7nCvNMiLKK1dikVe4/A==",
       "type": "package",
-      "path": "awssdk.core/3.3.101.15",
+      "path": "awssdk.core/3.3.102",
       "files": [
         ".signature.p7s",
-        "awssdk.core.3.3.101.15.nupkg.sha512",
+        "awssdk.core.3.3.102.nupkg.sha512",
         "awssdk.core.nuspec",
         "lib/MonoAndroid10/AWSSDK.Core.XML",
         "lib/MonoAndroid10/AWSSDK.Core.dll",
@@ -313,6 +334,44 @@
         "lib/uap/AWSSDK.DynamoDBv2.XML",
         "lib/uap/AWSSDK.DynamoDBv2.dll",
         "lib/uap/AWSSDK.DynamoDBv2.pdb",
+        "tools/install.ps1",
+        "tools/uninstall.ps1"
+      ]
+    },
+    "AWSSDK.SQS/3.3.100.28": {
+      "sha512": "fvn/9VWP9TVNuOgFrp5fxMY3DaNft1Rle7HGSp/Y26jyHN7Zfb+cqndTcytH73zEJndnmUwolT7vkKgiFjGaSA==",
+      "type": "package",
+      "path": "awssdk.sqs/3.3.100.28",
+      "files": [
+        ".signature.p7s",
+        "analyzers/dotnet/cs/AWSSDK.SQS.CodeAnalysis.dll",
+        "awssdk.sqs.3.3.100.28.nupkg.sha512",
+        "awssdk.sqs.nuspec",
+        "lib/MonoAndroid10/AWSSDK.SQS.XML",
+        "lib/MonoAndroid10/AWSSDK.SQS.dll",
+        "lib/MonoTouch10/AWSSDK.SQS.XML",
+        "lib/MonoTouch10/AWSSDK.SQS.dll",
+        "lib/MonoTouch10/AWSSDK.SQS.pdb",
+        "lib/Xamarin.iOS10/AWSSDK.SQS.XML",
+        "lib/Xamarin.iOS10/AWSSDK.SQS.dll",
+        "lib/net35/AWSSDK.SQS.dll",
+        "lib/net35/AWSSDK.SQS.pdb",
+        "lib/net35/AWSSDK.SQS.xml",
+        "lib/net45/AWSSDK.SQS.dll",
+        "lib/net45/AWSSDK.SQS.pdb",
+        "lib/net45/AWSSDK.SQS.xml",
+        "lib/netstandard1.3/AWSSDK.SQS.dll",
+        "lib/netstandard1.3/AWSSDK.SQS.pdb",
+        "lib/netstandard1.3/AWSSDK.SQS.xml",
+        "lib/netstandard2.0/AWSSDK.SQS.dll",
+        "lib/netstandard2.0/AWSSDK.SQS.pdb",
+        "lib/netstandard2.0/AWSSDK.SQS.xml",
+        "lib/portable-net45+win8+wpa81+wp8/AWSSDK.SQS.XML",
+        "lib/portable-net45+win8+wpa81+wp8/AWSSDK.SQS.dll",
+        "lib/portable-net45+win8+wpa81+wp8/AWSSDK.SQS.pdb",
+        "lib/uap/AWSSDK.SQS.XML",
+        "lib/uap/AWSSDK.SQS.dll",
+        "lib/uap/AWSSDK.SQS.pdb",
         "tools/install.ps1",
         "tools/uninstall.ps1"
       ]
@@ -779,13 +838,44 @@
         "netstandard.library.2.0.3.nupkg.sha512",
         "netstandard.library.nuspec"
       ]
+    },
+    "Newtonsoft.Json/12.0.2": {
+      "sha512": "mtweBXPWhp1CMQATtBT7ZfMZrbZBTKfjGwz6Y75NwGjx/GztDaUnfw8GK9KZ2T4fDIqKJyDjc9Rxlw5+G2FcVA==",
+      "type": "package",
+      "path": "newtonsoft.json/12.0.2",
+      "files": [
+        ".signature.p7s",
+        "LICENSE.md",
+        "lib/net20/Newtonsoft.Json.dll",
+        "lib/net20/Newtonsoft.Json.xml",
+        "lib/net35/Newtonsoft.Json.dll",
+        "lib/net35/Newtonsoft.Json.xml",
+        "lib/net40/Newtonsoft.Json.dll",
+        "lib/net40/Newtonsoft.Json.xml",
+        "lib/net45/Newtonsoft.Json.dll",
+        "lib/net45/Newtonsoft.Json.xml",
+        "lib/netstandard1.0/Newtonsoft.Json.dll",
+        "lib/netstandard1.0/Newtonsoft.Json.xml",
+        "lib/netstandard1.3/Newtonsoft.Json.dll",
+        "lib/netstandard1.3/Newtonsoft.Json.xml",
+        "lib/netstandard2.0/Newtonsoft.Json.dll",
+        "lib/netstandard2.0/Newtonsoft.Json.xml",
+        "lib/portable-net40+sl5+win8+wp8+wpa81/Newtonsoft.Json.dll",
+        "lib/portable-net40+sl5+win8+wp8+wpa81/Newtonsoft.Json.xml",
+        "lib/portable-net45+win8+wp8+wpa81/Newtonsoft.Json.dll",
+        "lib/portable-net45+win8+wp8+wpa81/Newtonsoft.Json.xml",
+        "newtonsoft.json.12.0.2.nupkg.sha512",
+        "newtonsoft.json.nuspec"
+      ]
     }
   },
   "projectFileDependencyGroups": {
     ".NETCoreApp,Version=v2.1": [
-      "AWSSDK.Core >= 3.3.101.15",
+      "AWSSDK.Core >= 3.3.102",
       "AWSSDK.DynamoDBv2 >= 3.3.101.14",
-      "Microsoft.NETCore.App >= 2.1.0"
+      "AWSSDK.SQS >= 3.3.100.28",
+      "Microsoft.NETCore.App >= 2.1.0",
+      "Newtonsoft.Json >= 12.0.2"
     ]
   },
   "packageFolders": {
@@ -831,17 +921,25 @@
         "dependencies": {
           "AWSSDK.Core": {
             "target": "Package",
-            "version": "[3.3.101.15, )"
+            "version": "[3.3.102, )"
           },
           "AWSSDK.DynamoDBv2": {
             "target": "Package",
             "version": "[3.3.101.14, )"
+          },
+          "AWSSDK.SQS": {
+            "target": "Package",
+            "version": "[3.3.100.28, )"
           },
           "Microsoft.NETCore.App": {
             "suppressParent": "All",
             "target": "Package",
             "version": "[2.1.0, )",
             "autoReferenced": true
+          },
+          "Newtonsoft.Json": {
+            "target": "Package",
+            "version": "[12.0.2, )"
           }
         },
         "imports": [

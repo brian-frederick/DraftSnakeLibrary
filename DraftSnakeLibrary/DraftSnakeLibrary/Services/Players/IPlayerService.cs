@@ -7,5 +7,7 @@ namespace DraftSnakeLibrary.Services.Players
     public interface IPlayerService
     {
         Task<List<Player>> RetrievePlayers(string draftId);
+
+        Task<Player> Put(Player newPlayer);
     }
 }

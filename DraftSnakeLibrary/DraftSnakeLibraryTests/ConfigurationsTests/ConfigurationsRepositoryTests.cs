@@ -1,5 +1,6 @@
 ﻿using Amazon.SimpleSystemsManagement;
 using Amazon.SimpleSystemsManagement.Model;
+using DraftSnakeLibrary.Repositories;
 using Moq;
 using System;
 using System.Collections.Generic;

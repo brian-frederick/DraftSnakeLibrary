@@ -13,5 +13,12 @@ namespace DraftSnakeLibrary.Models.Messages
         {
             MessageType = MessageType.PlayerCreated;
         }
+
+        public PlayerCreatedMessage(Player newPlayer)
+        {
+            MessageType = MessageType.PlayerCreated;
+            DraftId = newPlayer.DraftId;
+            NewPlayer = newPlayer;
+        }
     }  
 }

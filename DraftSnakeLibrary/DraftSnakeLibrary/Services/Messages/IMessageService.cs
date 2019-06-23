@@ -1,6 +1,6 @@
 ﻿using System.Threading.Tasks;
 
-namespace DraftSnakeLibraryTests.MessagesTest
+namespace DraftSnakeLibrary.Services.Messages
 {
     public interface IMessageService<T>
     {

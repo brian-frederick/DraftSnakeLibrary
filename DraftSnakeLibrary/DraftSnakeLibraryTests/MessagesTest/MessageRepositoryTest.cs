@@ -8,7 +8,6 @@ using Xunit;
 using Amazon.SQS;
 using Amazon.SQS.Model;
 using System.Threading;
-using DraftSnakeLibrary.Repositories.MessageRepository;
 
 namespace DraftSnakeLibraryTests.MessagesTest
 {

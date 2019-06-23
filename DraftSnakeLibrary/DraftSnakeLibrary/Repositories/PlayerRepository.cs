@@ -12,6 +12,7 @@ namespace DraftSnakeLibrary.Repositories
 {
     public class PlayerRepository : IModelDynamoDbRepository<Player>
     {
+        private string _tableName = "Players";
         IAmazonDynamoDB _dynamoClient;
         IModelMapper<Player> _playerMapper;
 
@@ -26,7 +27,7 @@ namespace DraftSnakeLibrary.Repositories
         {
             var request = new QueryRequest
             {
-                TableName = "Players",
+                TableName = _tableName,
                 KeyConditionExpression = "DraftId = :v_DraftId",
                 ExpressionAttributeValues = new Dictionary<string, AttributeValue> {
                     {":v_DraftId", new AttributeValue { S = draftId }},
@@ -51,7 +52,7 @@ namespace DraftSnakeLibrary.Repositories
         {
             var ddbRequest = new PutItemRequest
             {
-                TableName = "Players",
+                TableName = _tableName,
                 Item = new Dictionary<string, AttributeValue>
                     {
                         { "DraftId", new AttributeValue{ S = newPlayer.DraftId }},

@@ -1,8 +1,8 @@
-﻿using DraftSnakeLibrary.Models.Messages;
-using DraftSnakeLibrary.Repositories.MessageRepository;
+﻿using DraftSnakeLibrary.Repositories;
+using DraftSnakeLibrary.Services.Messages;
 using System.Threading.Tasks;
 
-namespace DraftSnakeLibraryTests.MessagesTest
+namespace DraftSnakeLibrary.Services.Messages
 {
     public class MessageService<T> : IMessageService<T>
     {

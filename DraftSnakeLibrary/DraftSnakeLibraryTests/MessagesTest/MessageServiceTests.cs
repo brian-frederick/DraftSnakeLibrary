@@ -1,5 +1,6 @@
 ﻿using DraftSnakeLibrary.Models.Messages;
-using DraftSnakeLibrary.Repositories.MessageRepository;
+using DraftSnakeLibrary.Repositories;
+using DraftSnakeLibrary.Services.Messages;
 using Moq;
 using System;
 using System.Collections.Generic;

@@ -4,7 +4,7 @@ using System.Threading.Tasks;
 using Amazon.SimpleSystemsManagement;
 using Amazon.SimpleSystemsManagement.Model;
 
-namespace DraftSnakeLibraryTests.ConfigurationsTests
+namespace DraftSnakeLibrary.Repositories
 {
     public class ConfigurationRepository : IConfigurationRepository
     {

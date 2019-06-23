@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace DraftSnakeLibrary.Repositories.MessageRepository
+namespace DraftSnakeLibrary.Repositories
 {
     public interface IMessageRepository<T>
     {

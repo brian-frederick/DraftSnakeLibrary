@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Threading.Tasks;
 
-namespace DraftSnakeLibraryTests.ConfigurationsTests
+namespace DraftSnakeLibrary.Repositories
 {
     public interface IConfigurationRepository
     {

@@ -17,7 +17,6 @@ namespace DraftSnakeLibraryTests.PlayersTests
         [Fact]
         public async void RetrievePlayersTest_Scenario_ReturnsPlayersFromDynamoClient()
         {
-
             var _dynamoClient = new Mock<IAmazonDynamoDB>();
             var _playerMapper = new Mock<IModelMapper<Player>>();
 

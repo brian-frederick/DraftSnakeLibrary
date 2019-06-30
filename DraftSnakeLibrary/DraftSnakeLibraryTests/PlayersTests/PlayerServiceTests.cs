@@ -19,7 +19,9 @@ namespace DraftSnakeLibraryTests
               new Player(){ Name = "test", DraftId = "test", ConnectionId = "test", IsConnected = true }
             };
 
-            _playerRepository.Setup(pr => pr.RetrieveByDraftId(It.IsAny<string>())).ReturnsAsync(expectedPlayers);
+            _playerRepository.Setup(pr => 
+                pr.RetrieveByDraftId(It.IsAny<string>()))
+                    .ReturnsAsync(expectedPlayers);
 
             var playerService = new PlayerService(_playerRepository.Object);
 

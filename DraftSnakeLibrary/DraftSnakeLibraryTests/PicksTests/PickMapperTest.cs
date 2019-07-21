@@ -20,7 +20,7 @@ namespace DraftSnakeLibraryTests.PicksTests
             var item = new Dictionary<string, AttributeValue>
             {
                 { "DraftId", new AttributeValue{ S = draftId} },
-                { "OverallOrder", new AttributeValue {N = overallOrder.ToString()} },
+                { "Id", new AttributeValue {N = overallOrder.ToString()} },
                 { "PlayerId", new AttributeValue {S = playerId} },
                 { "Selection", new AttributeValue {S = selection} }
             };
@@ -30,7 +30,7 @@ namespace DraftSnakeLibraryTests.PicksTests
             var result = pickMapper.MapDynamoItemToModel(item);
 
             Assert.Equal(draftId, result.DraftId);
-            Assert.Equal(overallOrder, result.OverallOrder);
+            Assert.Equal(overallOrder, result.Id);
             Assert.Equal(playerId, result.PlayerId);
             Assert.Equal(selection, result.Selection);
         }

@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace DraftSnakeLibrary.Services.Picks
 {
-    public class PickService
+    public class PickService : IPickService
     {
         IModelDynamoDbRepository<Pick> _pickRepository;
 
@@ -16,16 +16,16 @@ namespace DraftSnakeLibrary.Services.Picks
             _pickRepository = pickRepository;
         }
 
-        public async Task<List<Pick>> RetrieveByDraftId(string draftId)
+        public async Task<List<Pick>> Retrieve(string draftId)
         {
             return await _pickRepository.RetrieveByDraftId(draftId);
         }
 
         public async Task<Pick> Put(Pick newPick)
         {
-            if (newPick.OverallOrder < 1)
+            if (newPick.Id < 1)
             {
-                newPick.OverallOrder = await GetNextIdByDraft(newPick.DraftId);
+                newPick.Id = await GetNextIdByDraft(newPick.DraftId);
             }
 
             return await _pickRepository.Put(newPick);
@@ -35,7 +35,7 @@ namespace DraftSnakeLibrary.Services.Picks
         {
             var highestPick = await _pickRepository.RetrieveByDraftId(draftId, true, 1);
 
-            var highestPickId = highestPick.Count > 0 ? highestPick[0].OverallOrder :  0;
+            var highestPickId = highestPick.Count > 0 ? highestPick[0].Id :  0;
 
             return highestPickId + 1;
         }

@@ -26,7 +26,7 @@ namespace DraftSnakeLibraryTests.PicksTests
             dynamoQueryResponse.Items.Add(new Dictionary<string, AttributeValue>
             {
                 { "DraftId", new AttributeValue{ S = "test" }},
-                { "OverallOrder", new AttributeValue{N = "1" } },
+                { "Id", new AttributeValue{N = "1" } },
                 { "PlayerId", new AttributeValue{ S = "test player id" }},
                 { "Selection", new AttributeValue{ S = "test selection" } }
             });
@@ -61,7 +61,7 @@ namespace DraftSnakeLibraryTests.PicksTests
             dynamoQueryResponse.Items.Add(new Dictionary<string, AttributeValue>
             {
                 { "DraftId", new AttributeValue{ S = "test" }},
-                { "OverallOrder", new AttributeValue{N = "1" } },
+                { "Id", new AttributeValue{N = "1" } },
                 { "PlayerId", new AttributeValue{ S = "test player id" }},
                 { "Selection", new AttributeValue{ S = "test selection" } }
             });
@@ -91,7 +91,7 @@ namespace DraftSnakeLibraryTests.PicksTests
             var pickToAdd = new Pick()
             {
                 DraftId = "testDraftId",
-                OverallOrder = 1,
+                Id = 1,
                 PlayerId = "testId",
                 Selection = "potato wedges"
             };
@@ -102,7 +102,7 @@ namespace DraftSnakeLibraryTests.PicksTests
                 Item = new Dictionary<string, AttributeValue>
                 {
                     { "DraftId", new AttributeValue{ S = "test" }},
-                    { "OverallOrder", new AttributeValue{N = "1" }},
+                    { "Id", new AttributeValue{N = "1" }},
                     { "PlayerId", new AttributeValue{ S = "test player id" }},
                     { "Selection", new AttributeValue{ S = "test selection" }}
                 }

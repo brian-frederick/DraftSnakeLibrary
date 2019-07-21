@@ -18,9 +18,9 @@ namespace DraftSnakeLibrary.Services.Picks
             };
 
             int overallOrder;
-            int.TryParse(item["OverallOrder"]?.N, out overallOrder);
+            int.TryParse(item["Id"]?.N, out overallOrder);
 
-            pick.OverallOrder = overallOrder;
+            pick.Id = overallOrder;
 
             return pick;
         }

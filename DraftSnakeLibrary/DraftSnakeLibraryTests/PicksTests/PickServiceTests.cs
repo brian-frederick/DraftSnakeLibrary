@@ -18,7 +18,7 @@ namespace DraftSnakeLibraryTests.PicksTests
                 new Pick()
                 {
                     DraftId = "TEST",
-                    OverallOrder = 1,
+                    Id = 1,
                     PlayerId = "TestId",
                     Selection = "potato chips"
                 }
@@ -30,7 +30,7 @@ namespace DraftSnakeLibraryTests.PicksTests
 
             var pickService = new PickService(_picksRepository.Object);
 
-            var result = await pickService.RetrieveByDraftId("TEST");
+            var result = await pickService.Retrieve("TEST");
 
             Assert.Equal(expectedPicks, result);
         }
@@ -43,7 +43,7 @@ namespace DraftSnakeLibraryTests.PicksTests
             var pickToPut = new Pick()
             {
                 DraftId = "TEST",
-                OverallOrder = 3,
+                Id = 3,
                 PlayerId = "TestId",
                 Selection = "Mashed Potatoes"
             };
@@ -86,7 +86,7 @@ namespace DraftSnakeLibraryTests.PicksTests
 
             var picksListWithTopPick = new List<Pick>()
             {
-                new Pick(){DraftId = "TestDraft", OverallOrder = 20, PlayerId = "testPlayer2", Selection = "Gnocchi"}
+                new Pick(){DraftId = "TestDraft", Id = 20, PlayerId = "testPlayer2", Selection = "Gnocchi"}
             };
 
             _picksRepository

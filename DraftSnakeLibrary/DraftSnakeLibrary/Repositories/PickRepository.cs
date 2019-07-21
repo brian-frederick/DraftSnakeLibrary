@@ -69,7 +69,7 @@ namespace DraftSnakeLibrary.Repositories
                 Item = new Dictionary<string, AttributeValue>
                 {
                     { "DraftId", new AttributeValue{ S = newPick.DraftId }},
-                    { "OverallOrder", new AttributeValue{N = newPick.OverallOrder.ToString() } },
+                    { "Id", new AttributeValue{N = newPick.Id.ToString() } },
                     { "PlayerId", new AttributeValue{ S = newPick.PlayerId }},
                     { "Selection", new AttributeValue{ S = newPick.Selection } }
                 },

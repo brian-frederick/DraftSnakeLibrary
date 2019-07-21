@@ -23,8 +23,21 @@ namespace DraftSnakeLibrary.Services.Picks
 
         public async Task<Pick> Put(Pick newPick)
         {
+            if (newPick.OverallOrder < 1)
+            {
+                newPick.OverallOrder = await GetNextIdByDraft(newPick.DraftId);
+            }
+
             return await _pickRepository.Put(newPick);
         }
 
+        public async Task<int> GetNextIdByDraft(string draftId)
+        {
+            var highestPick = await _pickRepository.RetrieveByDraftId(draftId, true, 1);
+
+            var highestPickId = highestPick.Count > 0 ? highestPick[0].OverallOrder :  0;
+
+            return highestPickId + 1;
+        }
     }
 }

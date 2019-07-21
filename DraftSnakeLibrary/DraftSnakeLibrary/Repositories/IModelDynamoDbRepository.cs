@@ -10,6 +10,8 @@ namespace DraftSnakeLibrary.Repositories
     {
         Task<List<T>> RetrieveByDraftId(string draftId);
 
+        Task<List<T>> RetrieveByDraftId(string draftId, bool descendingOrder, int? limit);
+
         Task<T> Put(T item);
     }
 }

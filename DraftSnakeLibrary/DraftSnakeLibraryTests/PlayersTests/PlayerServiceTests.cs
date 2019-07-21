@@ -6,7 +6,7 @@ using Moq;
 using DraftSnakeLibrary.Repositories;
 using System.Collections.Generic;
 
-namespace DraftSnakeLibraryTests
+namespace DraftSnakeLibraryTests.PlayersTests
 {
     public class PlayerServiceTests
     {

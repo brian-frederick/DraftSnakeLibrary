@@ -54,17 +54,22 @@ namespace DraftSnakeLibrary.Repositories
             {
                 TableName = _tableName,
                 Item = new Dictionary<string, AttributeValue>
-                    {
-                        { "DraftId", new AttributeValue{ S = newPlayer.DraftId }},
-                        { "Name", new AttributeValue{S = newPlayer.Name} },
-                        { "ConnectionId", new AttributeValue{ S = newPlayer.ConnectionId }},
-                        { "IsConnected", new AttributeValue{ BOOL = newPlayer.IsConnected } }
-                    }
+                {
+                    { "DraftId", new AttributeValue{ S = newPlayer.DraftId }},
+                    { "Name", new AttributeValue{S = newPlayer.Name} },
+                    { "ConnectionId", new AttributeValue{ S = newPlayer.ConnectionId }},
+                    { "IsConnected", new AttributeValue{ BOOL = newPlayer.IsConnected } }
+                }
             };
 
             await _dynamoClient.PutItemAsync(ddbRequest);
 
             return newPlayer;
+        }
+
+        public Task<List<Player>> RetrieveByDraftId(string draftId, bool descendingOrder, int? limit)
+        {
+            throw new NotImplementedException();
         }
     }
 }

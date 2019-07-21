@@ -31,8 +31,8 @@ namespace DraftSnakeLibraryTests.PlayersTests
                 { "IsConnected", new AttributeValue{ BOOL = false } }
             });
 
-            _dynamoClient.
-                Setup(x => x.QueryAsync(It.IsAny<QueryRequest>(), It.IsAny<CancellationToken>()))
+            _dynamoClient
+                .Setup(x => x.QueryAsync(It.IsAny<QueryRequest>(), It.IsAny<CancellationToken>()))
                 .ReturnsAsync(dynamoQueryResponse);
 
             _playerMapper

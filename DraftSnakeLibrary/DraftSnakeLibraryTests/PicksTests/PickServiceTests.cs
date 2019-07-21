@@ -61,6 +61,45 @@ namespace DraftSnakeLibraryTests.PicksTests
             
         }
 
+        [Fact]
+        public async void GetNextIdByDraft_Scenario_FirstPickOfDraftIs1()
+        {
+            var _picksRepository = new Mock<IModelDynamoDbRepository<Pick>>();
+            var pickService = new PickService(_picksRepository.Object);
+
+            var emptyPicksList = new List<Pick>();
+            _picksRepository
+                .Setup(pr => pr.RetrieveByDraftId(It.IsAny<string>(), It.IsAny<bool>(), It.IsAny<int?>()))
+                .ReturnsAsync(emptyPicksList);
+
+            var nextOverallOrder = await pickService.GetNextIdByDraft("testDraft");
+
+            Assert.Equal(1, nextOverallOrder);
+
+        }
+
+        [Fact]
+        public async void GetNextIdByDraft_Scenario_ThirdPickOfDraftIs3()
+        {
+            var _picksRepository = new Mock<IModelDynamoDbRepository<Pick>>();
+            var pickService = new PickService(_picksRepository.Object);
+
+            var picksListWithTopPick = new List<Pick>()
+            {
+                new Pick(){DraftId = "TestDraft", OverallOrder = 20, PlayerId = "testPlayer2", Selection = "Gnocchi"}
+            };
+
+            _picksRepository
+                .Setup(pr => pr.RetrieveByDraftId(It.IsAny<string>(), It.IsAny<bool>(), It.IsAny<int?>()))
+                .ReturnsAsync(picksListWithTopPick);
+
+            var nextOverallOrder = await pickService.GetNextIdByDraft("testDraft");
+
+            Assert.Equal(21, nextOverallOrder);
+
+        }
+
+
     }
 
 }

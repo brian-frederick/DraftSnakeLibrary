@@ -13,9 +13,9 @@ namespace DraftSnakeLibrary.Repositories
     {
         private string _tableName = "Picks";
         IAmazonDynamoDB _dynamoClient;
-        IModelMapper<Pick> _pickMapper;
+        IDynamoMapper<Pick> _pickMapper;
 
-        public PickRepository(IAmazonDynamoDB dynamoClient, IModelMapper<Pick> pickMapper)
+        public PickRepository(IAmazonDynamoDB dynamoClient, IDynamoMapper<Pick> pickMapper)
         {
             _dynamoClient = dynamoClient;
             _pickMapper = pickMapper;
@@ -54,7 +54,7 @@ namespace DraftSnakeLibrary.Repositories
             scanResponse.Items.ForEach(item =>
             {
                 picks.Add(
-                    _pickMapper.MapDynamoItemToModel(item)
+                    _pickMapper.Map(item)
                 );
             });
 

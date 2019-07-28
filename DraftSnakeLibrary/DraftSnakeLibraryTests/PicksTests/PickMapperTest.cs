@@ -27,7 +27,7 @@ namespace DraftSnakeLibraryTests.PicksTests
 
             var pickMapper = new PickMapper();
 
-            var result = pickMapper.MapDynamoItemToModel(item);
+            var result = pickMapper.Map(item);
 
             Assert.Equal(draftId, result.DraftId);
             Assert.Equal(overallOrder, result.Id);

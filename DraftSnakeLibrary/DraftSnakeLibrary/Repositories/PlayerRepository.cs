@@ -14,9 +14,9 @@ namespace DraftSnakeLibrary.Repositories
     {
         private string _tableName = "Players";
         IAmazonDynamoDB _dynamoClient;
-        IModelMapper<Player> _playerMapper;
+        IDynamoMapper<Player> _playerMapper;
 
-        public PlayerRepository(IAmazonDynamoDB dynamoClient, IModelMapper<Player> playerMapper)
+        public PlayerRepository(IAmazonDynamoDB dynamoClient, IDynamoMapper<Player> playerMapper)
         {
             _dynamoClient = dynamoClient;
             _playerMapper = playerMapper;
@@ -41,7 +41,7 @@ namespace DraftSnakeLibrary.Repositories
             scanResponse.Items.ForEach(item =>
             {
                 players.Add(
-                    _playerMapper.MapDynamoItemToModel(item)
+                    _playerMapper.Map(item)
                  );
             });
 

@@ -27,7 +27,7 @@ namespace DraftSnakeLibraryTests.PlayersTests
             };
 
             var _playerMapper = new PlayerMapper();
-            var result = _playerMapper.MapDynamoItemToModel(item);
+            var result = _playerMapper.Map(item);
 
             Assert.Equal(draftId, result.DraftId);
             Assert.Equal(name, result.Name);

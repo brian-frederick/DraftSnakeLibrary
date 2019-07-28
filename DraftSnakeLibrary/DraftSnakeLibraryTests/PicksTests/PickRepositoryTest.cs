@@ -18,7 +18,7 @@ namespace DraftSnakeLibraryTests.PicksTests
         public async void RetrievePicksTest_Scenario_ReturnsPicksFromDynamoClientWithOnlyDraftIdParam()
         {
             var _dynamoClient = new Mock<IAmazonDynamoDB>();
-            var _pickMapper = new Mock<IModelMapper<Pick>>();
+            var _pickMapper = new Mock<IDynamoMapper<Pick>>();
 
             var dynamoQueryResponse = new QueryResponse();
             var expectedPick = new Pick();
@@ -36,7 +36,7 @@ namespace DraftSnakeLibraryTests.PicksTests
                 .ReturnsAsync(dynamoQueryResponse);
 
             _pickMapper
-                .Setup(pm => pm.MapDynamoItemToModel(It.IsAny<Dictionary<string, AttributeValue>>()))
+                .Setup(pm => pm.Map(It.IsAny<Dictionary<string, AttributeValue>>()))
                 .Returns(expectedPick);
 
             var pickRepository = new PickRepository(_dynamoClient.Object, _pickMapper.Object);
@@ -53,7 +53,7 @@ namespace DraftSnakeLibraryTests.PicksTests
         public async void RetrievePicksTest_Scenario_ReturnsPicksFromDynamoClientWithLimitAndDescending()
         {
             var _dynamoClient = new Mock<IAmazonDynamoDB>();
-            var _pickMapper = new Mock<IModelMapper<Pick>>();
+            var _pickMapper = new Mock<IDynamoMapper<Pick>>();
 
             var dynamoQueryResponse = new QueryResponse();
             var expectedPick = new Pick();
@@ -71,7 +71,7 @@ namespace DraftSnakeLibraryTests.PicksTests
                 .ReturnsAsync(dynamoQueryResponse);
 
             _pickMapper
-                .Setup(pm => pm.MapDynamoItemToModel(It.IsAny<Dictionary<string, AttributeValue>>()))
+                .Setup(pm => pm.Map(It.IsAny<Dictionary<string, AttributeValue>>()))
                 .Returns(expectedPick);
 
             var pickRepository = new PickRepository(_dynamoClient.Object, _pickMapper.Object);
@@ -109,7 +109,7 @@ namespace DraftSnakeLibraryTests.PicksTests
             };
 
             var _dynamoClient = new Mock<IAmazonDynamoDB>();
-            var _pickMapper = new Mock<IModelMapper<Pick>>();
+            var _pickMapper = new Mock<IDynamoMapper<Pick>>();
 
             var pickRepository = new PickRepository(_dynamoClient.Object, _pickMapper.Object);
 

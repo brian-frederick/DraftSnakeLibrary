@@ -5,8 +5,10 @@ using System.Text;
 
 namespace DraftSnakeLibrary.Services
 {
-    public interface IModelMapper<T>
+    public interface IDynamoMapper<T>
     {
-        T MapDynamoItemToModel(Dictionary<string, AttributeValue> item);
+        T Map(Dictionary<string, AttributeValue> item);
+
+        Dictionary<string, AttributeValue> Map(T model);
     }
 }

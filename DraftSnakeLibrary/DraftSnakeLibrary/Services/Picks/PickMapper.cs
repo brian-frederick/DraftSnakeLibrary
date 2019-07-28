@@ -6,9 +6,9 @@ using System.Text;
 
 namespace DraftSnakeLibrary.Services.Picks
 {
-    public class PickMapper : IModelMapper<Pick>
+    public class PickMapper : IDynamoMapper<Pick>
     {
-        public Pick MapDynamoItemToModel(Dictionary<string, AttributeValue> item)
+        public Pick Map(Dictionary<string, AttributeValue> item)
         {
             var pick = new Pick()
             {
@@ -23,6 +23,11 @@ namespace DraftSnakeLibrary.Services.Picks
             pick.Id = overallOrder;
 
             return pick;
+        }
+
+        public Dictionary<string, AttributeValue> Map(Pick pick)
+        {
+            throw new NotImplementedException();
         }
     }
 }

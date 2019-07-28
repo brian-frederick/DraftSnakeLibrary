@@ -7,9 +7,9 @@ using System.Text;
 namespace DraftSnakeLibrary.Models.Players
 {
 
-    public class PlayerMapper : IModelMapper<Player>
+    public class PlayerMapper : IDynamoMapper<Player>
     {
-        public Player MapDynamoItemToModel(Dictionary<string, AttributeValue> item)
+        public Player Map(Dictionary<string, AttributeValue> item)
         {
             var player = new Player()
             {
@@ -20,6 +20,11 @@ namespace DraftSnakeLibrary.Models.Players
             };
 
             return player;
+        }
+
+        public Dictionary<string, AttributeValue> Map(Player player)
+        {
+            throw new NotImplementedException();
         }
     }
 }

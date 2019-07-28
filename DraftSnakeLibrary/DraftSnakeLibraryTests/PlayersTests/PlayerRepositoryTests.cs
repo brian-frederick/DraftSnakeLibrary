@@ -18,7 +18,7 @@ namespace DraftSnakeLibraryTests.PlayersTests
         public async void RetrievePlayersTest_Scenario_ReturnsPlayersFromDynamoClient()
         {
             var _dynamoClient = new Mock<IAmazonDynamoDB>();
-            var _playerMapper = new Mock<IModelMapper<Player>>();
+            var _playerMapper = new Mock<IDynamoMapper<Player>>();
 
             var dynamoQueryResponse = new QueryResponse();
             var expectedPlayer = new Player();
@@ -36,7 +36,7 @@ namespace DraftSnakeLibraryTests.PlayersTests
                 .ReturnsAsync(dynamoQueryResponse);
 
             _playerMapper
-                .Setup(pm => pm.MapDynamoItemToModel(It.IsAny<Dictionary<string, AttributeValue>>()))
+                .Setup(pm => pm.Map(It.IsAny<Dictionary<string, AttributeValue>>()))
                 .Returns(expectedPlayer);
 
             var playerRepository = new PlayerRepository(_dynamoClient.Object, _playerMapper.Object);
@@ -63,7 +63,7 @@ namespace DraftSnakeLibraryTests.PlayersTests
             };
 
             var _dynamoClient = new Mock<IAmazonDynamoDB>();
-            var _playerMapper = new Mock<IModelMapper<Player>>();
+            var _playerMapper = new Mock<IDynamoMapper<Player>>();
 
             var playerRepository = new PlayerRepository(_dynamoClient.Object, _playerMapper.Object);
 
